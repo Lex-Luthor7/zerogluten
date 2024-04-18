@@ -16,3 +16,41 @@
     color: white;
 
 }
+
+.contenedorLogo {
+    width: 100px; /* Ajusta el tamaño según tu necesidad */
+    height: 100px; /* Ajusta el tamaño según tu necesidad */
+    overflow: hidden; /* Para ocultar las esquinas sobrantes */
+    border-radius: 50%; /* Hace que el contenedor tenga forma de círculo */
+  }
+  
+  .contenedorLogo img {
+    width: 5%; /* Para asegurarse de que la imagen llene el contenedor */
+    height: auto; /* Para mantener la proporción */
+    display: block; /* Para evitar espacios adicionales */
+  }
+   footer{
+    background: rgb(47,75,41);
+    text-align: auto;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    /*medidas*/
+     text-align: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+        /*centrar caja*/
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+      
+  } 
+  .listaFooter{
+    font-size: 0.8em;
+    text-align: auto;
+    padding: 1px;
+  }
+
+.ftarget {
+    display: flexbox;
+    justify-content: auto;
+}
