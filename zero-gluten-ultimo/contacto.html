@@ -6,7 +6,10 @@
     
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="css/all-zerogluten.css">
+    <link rel="stylesheet" href="css/contacto.css">
     
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -95,8 +98,105 @@
         </nav>
     </header>
 
+    <!-- pagina de contacto - formulario-->
+    <section class="intro">
+        <!--columna izq-->
+        <div class="intro-box container-fluid">
+            <p class="epi-left">¿Tenés alguna consulta?</p>
+            <p class="title-left">Contáctate con <br> nosotros</p>
+            <p class="body-left">Si tenés alguna pregunta o inquietud sobre cómo funcionan los servicios que ofrecemos o si querés dejarnos un comentario sobre cómo fue tu experiencia recibida con nuestros partners gastronómicos, completá el formulario de contacto aquí debajo</p>
+            <button class="btn-page" onclick="scrollToForm()">¡CONTÁCTANOS!</button>
+        </div>
+        <!--columna der-->
+        <div class="intro-box container-fluid">
+            <p class="epi-right">¿Conocés nuestras redes?</p>
+            <p class="title-right">Encontranos en tu <br> red social favorita</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Tik Tok</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--formulario contacto-->
+    <section class="background">
+        <div class="contact-box container-fluid">
+            <p class="title-form">¡Contáctate con nuestro equipo!</p>
+            <p class="text-form">Esperamos tu opinión o consulta con ansías. Te responderemos lo antes posible!</p>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <div class="form-group">    
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="Nombre" required>
+                </div>
+                <div class="form-group">    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Motivo de Contacto:</label>
+                    <input type="radio" id="duda" name="motivo" value="Consulta" required>
+                    <label for="duda">Duda/Consulta</label>
+                    <input type="radio" id="opinion" name="motivo" value="Opinion" required>
+                    <label for="opinion">Opinión</label>
+                    <input type="radio" id="reclamo" name="motivo" value="reclamo" required>
+                    <label for="reclamo">Reclamo</label>
+                </div>
+                <div class="form-group">    
+                    <label for="servicio">Servicio que utilizaste:</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="Tienda online">Tienda Online</option>
+                        <option value="Restaurantes">Restaurantes</option>
+                    </select>
+                </div>
+                <div class="form-group">    
+                    <label for="ubicacion">¿Desde dónde nos contactás?</label>
+                    <select id="ubicacion" name="ubicacion" required>
+                        <option value="Buenos Aires - GBA">Buenos Aires - GBA</option>
+                        <option value="Buenos Aires - Interior">Buenos Aires - Interior</option>
+                        <option value="CABA">CABA</option>
+                        <option value="Catamarca">Catamarca</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Cordoba">Córdoba</option>
+                        <option value="Corrientes">Corrientes</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Formosa">Formosa</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="LaPampa">La Pampa</option>
+                        <option value="LaRioja">La Rioja</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="RíoNegro">Río Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="SanJuan">San Juan</option>
+                        <option value="SanLuis">San Luis</option>
+                        <option value="SantaCruz">Santa Cruz</option>
+                        <option value="SantaFe">Santa Fe</option>
+                        <option value="SantiagodelEstero">Santiado del Estero</option>
+                        <option value="TierradelFuego">Tierra del Fuego</option>
+                        <option value="Tucuman">Tucumán</option>
+                    </select>
+                </div>
+                <div class="form-group">    
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" name="suscribir" id="suscribir" class="form-check-input">
+                    <label for="suscribir" class="form-check-label">¿Deseas suscribirte a nuestro newsletter? Recibirás novedades y promociones de nuestros servicios.</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" id="aceptar" name="aceptar" class="form-check-input" required>
+                    <label for="aceptar" class="form-check-label">Acepto los terminos y condiciones de privacidad.</label>
+                </div>
+                <button type="submit" class="btn btn-primary">ENVIAR</button>
+            </form>
+        </div>
+    </section>
+
     <!-- scritps -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/validar-form.js"></script>
 </body>
 
 <footer>
@@ -130,11 +230,9 @@
           <div class="col-md-2">
             <span class="title-redes">Nuestras redes</span>
             <div class="d-flex flex-wrap"></div>
-            <a href="https://www.facebook.com/Paliii.17/" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-            <a href="" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
             <a href="" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
           </div>
           <div class="col-md-2 offset-md-1">
             <span class="quinta-columna">
