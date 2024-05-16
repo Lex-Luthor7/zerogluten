@@ -104,14 +104,8 @@
 /* Estilos del formulario de contacto */
 .background {
     background-color: rgb(40, 69, 35);
-}
-.contact-box {
-    padding: 50px;
-    background-color: rgb(146, 144, 121);
-    border-radius: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-    color: rgb(22, 33, 20);
+    border-bottom: 45px solid rgb(40, 69, 35);
+    
 }
 
 .title-form {
@@ -126,6 +120,71 @@
 .text-form {
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 50px;
+    background-color: rgb(146, 144, 121);
+    border-radius: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgb(22, 33, 20);
+}
+
+.contact-box form{
+    width: 80%;
+    max-width: 600px;
+    background-color: rgb(146, 144, 121);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-box .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.contact-box label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-box input[type="text"],
+.contact-box input[type="email"],
+.contact-box textarea,
+.contact-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(22, 33, 20, 0.5);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-box .form-check {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+}
+
+.contact-box .form-check input[type=checkbox],
+.contact-box .form-check input[type=radio] {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.contact-box .form-check-label {
+    margin: 0;
+}
+
+.contact-box .radio-group {
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-form p {
@@ -159,7 +218,7 @@
 
 .form-check-input {
     margin-top: 7px;
-    background-color: rgb(4, 57, 39);
+    background-color: rgb(255, 255, 255);
     color: rgb(225, 222, 195);
 }
 
