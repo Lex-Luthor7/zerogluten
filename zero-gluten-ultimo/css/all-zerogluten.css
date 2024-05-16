@@ -35,20 +35,14 @@
     margin: 0; 
     color: rgb(255, 240, 210);
 }
-.navbar-brand:hover{
-    color: rgba(255, 240, 210, 0.5)
-}
- 
-.navbar-brand:focus {
-    color: rgb(255, 240, 210)
-}
 .navbar-toggler {
-    width: auto;
-    height: auto;
-    position: block;
-    border: 5px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: 0;
     transition: .5s ease-in-out;
-    background-color: rgba(255, 240, 210, 0.5);
+    background-color: rgb(255, 240, 210);
+    color: rgb(255, 240, 210);
 }
   
 .navbar-toggler,
@@ -63,6 +57,18 @@
 .navbar-toggler span {
     margin: 0;
     padding: 0;
+}
+  
+.toggler-icon { 
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 240, 210);
+    color: rgb(255, 240, 210);
+    border-radius: 1px;
+    opacity: 1;
+    transition: .25s ease-in-out;
 }
   
 .btn-close {
@@ -100,15 +106,7 @@
     color: rgb(255, 240, 210);
     margin-right: 26px; 
 }
-
-.nav-item:hover {
-    color: rgba(255, 240, 210, 0.5);
-}
-
-.nav-item:focus{
-    color: rgb(255, 240, 210);
-}
-
+  
 .nav-link {
     font-family: 'Josefin Sans', sans-serif; 
     font-size: 22px; 
@@ -116,12 +114,6 @@
     text-decoration: none; 
 }
   
-.nav-link:hover{
-    color: rgba(255, 240, 210, 0.5);
-}
-.nav-link:focus {
-    color: rgb(255, 240, 210);
-}
 .dropdown-menu{
     background-color: rgba(255, 240, 210, 0.5);
 }

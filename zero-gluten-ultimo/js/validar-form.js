@@ -3,7 +3,7 @@ function validateForm() {
     let email = document.getElementById("email").value;
     let motivo = document.querySelector('input[name="motivo"]:checked');
     let servicio = document.getElementById("servicio").value;
-    let ubicacion = document.getElementById("ubicacion").value;
+    let ubicacion = document.getElementById("contacto").value;
     let mensaje = document.getElementById("mensaje").value;
     let suscribir = document.getElementById("suscribir").checked;
     let aceptar = document.getElementById("aceptar").checked;
@@ -30,8 +30,6 @@ function validateForm() {
     return true;
 }
 
-
-
 function scrollToForm() {
-    document.getElementById("contactForm").scrollIntoView({behavior: 'smooth'});
+    document.querySelector('.contact-form').scrollIntoView({behavior: 'smooth'});
 }
