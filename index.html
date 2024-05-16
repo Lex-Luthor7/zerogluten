@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Yeseva+One&display=swap" rel="stylesheet">
+    
+    <!--Swiper Slider-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<style>
+    .swiper {
+            width: 100%;
+            height: 300px;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            height: auto;
+        }
+</style>
+
+</head>
+
+<body>
+    <!-- barra de navegacion + marca -->
+    <header>    
+        <nav class="navbar navbar-expand-xl">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">ZeroGluten</a>
+
+                <!-- menu desplegable - offcanvas -->
+                <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--contenido del menu-->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">ZeroGluten</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                        
+                    <div class="offcanvas-body">
+                        <!-- lista: items con submenu -->
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-1">
+                            <!-- inicio -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">
+                                    Inicio
+                                </a>
+                            </li>
+                            <!-- restaurantes   -->    
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Restaurantes
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            Mapa interactivo
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- tiendas -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tienda
+                                </a>                                                                        
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="tiendas.html">
+                                            Tiendas en tu provincia
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            Productos online
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- preg frecuentes -->    
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">
+                                    Preguntas frecuentes
+                                </a>
+                            </li>
+                            <!-- contacto -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="contacto.html">
+                                    Contacto
+                                </a>
+                            </li>
+                        </ul>
+                    </div>    
+                </div>
+            </div>
+        </nav>
+    </header>
+        
+    <!--Portada Web-->
+    <div class="caja-contenido">
+        <br><br>
+        <div class="position-relative ">
+            <img src="img/ilustracion alimentos - portada.jpg" alt="Pagina Oficial" class="img-portada img-fluid mx-auto d-block">
+            <div class="texto-portada position-absolute top-50 start-50 translate-middle text center">
+                <h6 class="tarriba">SOMOS</h6>
+                <h1 class="tmedio">Zero Gluten</h1>
+                <p class="tabajo">Impulsando la alimentación sin TACC, <b>desde 2024</b></p>
+            </div>
+        </div>
+        <br><br>
+    </div>
+
+    <!--Marcas Slider-->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/arcor-remove-removebg-preview.png" class="mx-auto d-block" alt="primera" width="45%"></div>
+            <div class="swiper-slide"><img src="img/carrefour-sin-gluten-removebg-preview.png" class="mx-auto d-block" alt="segunda" width="60%"></div>
+            <div class="swiper-slide"><img src="img/dicomere-removebg-preview.png" class="mx-auto d-block" alt="tercera" width="60%"></div>
+            <div class="swiper-slide"><img src="img/felices_las_vacas-removebg-preview.png" class="mx-auto d-block" alt="cuarta" width="40%"></div>
+            <div class="swiper-slide"><img src="img/not_co-removebg-preview.png" class="mx-auto d-block" alt="quinta" width="33%"></div>
+            <div class="swiper-slide"><img src="img/sancor-removebg-preview.png" class="mx-auto d-block" alt="sexta" width="45%"></div>
+            <div class="swiper-slide"><img src="img/smams-removebg-preview.png" class="mx-auto d-block" alt="septima" width="60%"></div>
+            <div class="swiper-slide"><img src="img/yin_yang-removebg-preview.png" class="mx-auto d-block" alt="octavaa" width="45%"></div>
+        </div>
+        
+        <div class="swiper-pagination"></div>
+  </div>
+
+
+    <!-- Caja Ig -->
+    <section class="news-main">
+        <article>
+            <div class="col text-center">
+                <p>Caja Ig</p>
+                <a href="#">ver mas</a>
+            </div>
+        </article>
+        <article>
+            <div class="col text-center">
+                <p>Comentarios-Recomendaciones</p>
+                <a href="#">ver mas</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Blog Recetario -->
+    <section class="news-main2">
+        <article>
+            <div class="col text-center">
+                <p>Blog Recetario</p>
+                <a href="#">ver mas</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- scritps -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swiper-slider.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+<footer>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <span class="title-empresa">Nuestra empresa</span>
+            <ul class="footer-list">
+              <li><a href="quienes_somos.html">Quiénes Somos</a></li>
+              <li><a href="">Trabaja con Nosotros</a></li>
+              <li><a href="">Términos y Condiciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <span class="title-servicios">Nuestros servicios</span>
+            <ul class="footer-list">
+              <li><a href="">Restaurantes patrocinados</a></li>
+              <li><a href="">Tiendas patrocinadas</a></li>
+              <li><a href="">Mapa interactivo</a></li>
+              <li><a href="">Blog - Recetario</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <span class="title-ayuda">¿Te ayudamos?</span>
+            <ul class="footer-list">
+              <li><a href="">Preguntas frecuentes</a></li>
+              <li><a href="">Contacto</a></li>
+              <li><a href="">Garantías y Devoluciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <span class="title-redes">Nuestras redes</span>
+            <div class="d-flex flex-wrap"></div>
+            <a href="https://www.facebook.com/Paliii.17/" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+            <a href="" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+          </div>
+          <div class="col-md-2 offset-md-1">
+            <span class="quinta-columna">
+              <ul class="footer-list">
+                <li><a href="">Política de Privacidad</a></li>
+                <li><a href="">Política de Cookies</a></li>
+                <li><a href="">Configuración de Cookies</a></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+          <hr class="footer-divider">
+          <p class="footer-brand">ZeroGluten &copy; Todos los derechos reservados. 2024.</p>
+        </div>
+</footer>
+
+</html>
