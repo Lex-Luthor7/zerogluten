@@ -1,0 +1,44 @@
+{% include 'defaults/head3.html' %}
+
+<html>
+<body class="body2">
+
+    <div class="container mt-5">
+        <h2 class="mb-4 catalogo text-center">{{title[0]}}</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 acciones">
+                <div class="row text-center">
+                    <div class="col-3 font-weight-bold cprod">Descripción</div>
+                    <div class="col-3 font-weight-bold cprod">Precio</div>
+                    <div class="col-3 font-weight-bold cprod">Imagen</div>
+                    <div class="col-3 font-weight-bold cprod">Acciones</div>
+                </div>
+                <hr> 
+                <!-- Línea de separación -->
+                {% for producto in productos %}
+                <div class="row align-items-center product-row text-center">
+                    <div class="col-3">{{ producto['nombre'] }}</div>
+                    <div class="col-3">$ {{ producto['precio'] }}</div>
+                    <div class="col-3">
+            
+                        <img src="{{ url_for('static', filename='uploads/' + producto['imagen']) }}" width="100" class="imgprod">
+                    </div>
+                    <div class="col-3">
+                        <a href="/editar_prod/{{ producto['id'] }}" class="btn btn-sm btn2">Editar</a>
+                        <a href="/borrar_prod/{{ producto['id'] }}" class="btn btn-sm ms-2 btn3">Borrar</a>
+                    </div>
+                    <hr>
+                </div>
+                {% endfor %}
+                <div class="row justify-content-center">
+                    <div class="col text-center">
+                        <a href="/cargar_prod" class="btn btn-agregar">Agregar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% include 'defaults/footer2.html' %}
