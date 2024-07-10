@@ -1,0 +1,124 @@
+{% include 'defaults/head2.html' %}
+
+<style>
+
+.buscador{
+    position: absolute;
+    left: 270px;
+    top: 35px;
+    }
+    .search{
+        width: 250px;
+        height: 35px;
+        padding: 10px;
+        font-size: 16px;
+        }   
+        .button{
+            padding: 6px 25px; 
+            font-size: 16px;
+            border-radius: 6px;
+            background-color: rgba(212, 211, 211, 0.904);
+            cursor: pointer;
+            }
+            
+.wrapper {
+    max-width: 100%;
+}
+
+.container-resultados{
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    }
+.producto-resultado{
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+    .producto{
+        position: relative;
+        justify-content: center;
+        background-color:rgb(166, 180, 176);
+        border-radius: 20px;
+        width: 350px;
+        padding: 20px;
+        }
+        .producto img{
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 15px;
+            }
+            .p{
+                font-family:'Josefin Sans', sans-serif;
+                color:rgba(219, 255, 210, 0);
+                font-size: 16px;
+                text-align: center;
+                margin-top: 25px;
+            }
+
+@media screen and (max-width: 768px) {
+    .container-resultados{
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .search{
+        width: 120px;
+        height: 30px;
+        padding: 5px;
+        font-size: 12px;  
+    }
+    .button{
+        padding: 3px 20px; 
+        font-size: 14px;
+        border-radius: 6px;
+        background-color: rgba(212, 211, 211, 0.904);
+        cursor: pointer;
+    }
+}
+ 
+</style>
+
+<body>
+
+<!--Congelados-->
+<p class="co">CONGELADOS</p>
+    
+
+    <body class="body">
+        <div class="wrapper">
+            <div class="container-resultados" id="resultado">
+                {% for producto in productos %}
+                <div class="producto">
+                    <img src="{{ url_for('static', filename='uploads/' + producto['imagen']) }}" alt="{{ producto['nombre'] }}" class="imgprod">
+                    <p>{{ producto['nombre'] }}</p>
+                    <p>Precio: $ {{ producto['precio'] }}</p>
+                    <div class="stars">
+                        {% for i in range(1, 6) %}
+                        <i class="fa-star star fa-regular" data-rating="{{ i }}"></i>
+                        {% endfor %}
+                    </div>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+
+<script src="{{url_for('static',filename='js/buscarProd.js')}}"></script>
+<script src="{{url_for('static',filename='js/productos.js')}}"></script>
+<script src="{{url_for('static',filename='js/comprarProd.js')}}"></script>
+
+
+
+</body>
+
+<!--Footer-->
+{% include 'defaults/footer3.html' %}
+</html>

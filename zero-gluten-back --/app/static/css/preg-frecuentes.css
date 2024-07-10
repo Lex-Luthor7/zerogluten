@@ -1,0 +1,163 @@
+/* fonts by google NO ELIMINAR*/
+.yeseva-one-regular {
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* nota para josefin-sans--> <uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 700 */
+  
+.josefin-sans- /* <uniquifier> */{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+.navbar {
+  width: 100%; 
+  height: 100px;
+  background-color: rgb(22, 33, 20); 
+  color: rgb(255, 240, 210); 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px; 
+}
+.navbar-brand {
+  font-family: 'Yeseva One', cursive; 
+  font-size: 30px; 
+  width: 240px; 
+  height: 50px; 
+  margin: 0; 
+  color: rgb(255, 240, 210);
+}
+.navbar-toggler {
+  position: relative;
+  border: 0;
+  transition: .5s ease-in-out;
+  background-color: rgb(255, 240, 210);
+  color: rgb(255, 240, 210);
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.navbar-toggler span {
+  margin: 0;
+  padding: 0;
+} 
+
+.toggler-icon { 
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: rgb(255, 240, 210);
+  color: rgb(255, 240, 210);
+  border-radius: 1px;
+  opacity: 1;
+  transition: .25s ease-in-out;
+}
+
+.btn-close {
+ background-color: rgb(255, 240, 210);
+ box-shadow: none;  
+}
+
+.offcanvas-header{
+  background-color: rgb(22, 33, 20);
+}
+
+.offcanvas-title{
+  font-family: 'Yeseva One', cursive;
+  font-size: 25px;
+  color: rgb(255, 240, 210);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: auto;
+}
+
+.offcanvas-body{
+  background-color: rgba(22, 33, 20, 0.85);
+}
+
+.navbar-nav {
+  list-style: none; 
+  display: flexbox; 
+}
+
+.nav-item {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  color: rgb(255, 240, 210);
+  margin-right: 26px; 
+}
+
+.nav-link {
+  font-family: 'Josefin Sans', sans-serif; 
+  font-size: 18px; 
+  color: rgb(255, 240, 210);
+  text-decoration: none; 
+}
+
+.navbar-toggler-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.dropdown-menu{
+  background-color: rgba(255, 240, 210, 0.5);
+}
+
+.dropdown-item{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  color: rgb(40, 65, 35);
+}
+
+
+/*en este css: solo lo que respecta al preguentas.html*/
+.title-h2-preg{
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+  flex-direction: row;
+  padding: 2%;
+  background-color: rgb(255, 240, 210);
+  border-radius: 60px;
+  margin-bottom: 40px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+.preg1-h4, .preg2-h4, .preg3-h4{
+  text-align: center;
+  width: 25%;
+  margin: 0 auto;
+  flex-direction: row;
+  padding: 2%;
+  background-color: rgb(255, 240, 210);
+  border-radius: 60px;
+  margin-bottom: 40px;
+}
+
+body{
+  background-color: #284123;
+}
+
+
+

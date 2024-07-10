@@ -1,0 +1,33 @@
+{% include 'defaults/head3.html' %}
+
+<body class="body2">
+    <div class="container form-container">
+        <div class="catalogo contenedor-prod justify-content-center">
+            <h2 class="text-center mb-4">{{title[0]}}</h2>
+            <div class="form-producto bg justify-content-center">
+                <form action="/editar_prod/{{producto['id']}}" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <!-- ID PRODUCTO -->
+                        <input type="hidden" name="prod_id" value="{{producto['id']}}">
+                        <!-- DATOS PRODUCTO -->
+                        <label for="prod_nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="prod_nombre" name="prod_nombre" value="{{producto['nombre']}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prod_precio" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="prod_precio" name="prod_precio" value="{{producto['precio']}}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prod_imagen" class="form-label">Imagen</label>
+                        <input type="file" class="form-control-file" id="prod_imagen" name="prod_imagen">
+                        <img src="{{url_for('static',filename='uploads/' + producto['imagen'])}}" width="150" class="img-thumbnail mt-2">
+                        <input type="hidden" name="prod_imagen_actual" value="{{ producto['imagen'] }}">
+                    </div>
+                    <input type="submit" class="btn4 btn-dark w-100" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% include 'defaults/footer2.html' %}

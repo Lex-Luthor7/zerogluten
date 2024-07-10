@@ -1,0 +1,25 @@
+{% include 'defaults/head4.html' %}
+
+<body class="body2">
+<div>
+  <div class="container form-container">
+    <div class="catalogo contenedor-prod justify-content-center">
+        <h2 class="text-center mb-4">{{title[0]}}</h2>
+        <div class="form-producto bg justify-content-center">
+          <form class="form-control" action="/acceso-usuario" method="POST">
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electronico</label>
+              <input type="email" class="form-control formlogin" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control formlogin" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btnlogin">Ingresar</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+</body>
+{% include 'defaults/footer2.html' %}

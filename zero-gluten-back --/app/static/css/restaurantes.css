@@ -1,0 +1,19 @@
+/* fonts by google NO ELIMINAR*/
+.yeseva-one-regular {
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* nota para josefin-sans--> <uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 700 */
+  
+.josefin-sans- /* <uniquifier> */{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+/*en este css: solo va todo lo de restaurantes*/
+/*html restaurantes */
