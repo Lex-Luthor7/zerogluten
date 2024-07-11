@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de formulario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all-zerogluten.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Detalles del formulario recibido
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Nombre:</strong> {{ contact_form.nombre }}</p>
+                        <p><strong>Email:</strong> {{ contact_form.email }}</p>
+                        <p><strong>Motivo de Contacto:</strong> {{ contact_form.motivo_contacto }}</p>
+                        <p><strong>Servicio Utilizado:</strong> {{ contact_form.serv_utilizado }}</p>
+                        <p><strong>Ubicación:</strong> {{ contact_form.ubicacion }}</p>
+                        <p><strong>Mensaje:</strong> {{ contact_form.mensaje }}</p>
+                        <p><strong>Newsletter:</strong> {{ contact_form.newsletter }}</p>
+                        <p><strong>Leído:</strong> {{ 'Sí' if contact_form.leido else 'No' }}</p>
+                        <a href="{{ url_for('contactoABM') }}" class="btn btn-primary">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>    
+</body>
+</html>

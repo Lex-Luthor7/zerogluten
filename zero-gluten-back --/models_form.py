@@ -14,3 +14,4 @@ class Formulario(db.Model):
     mensaje = db.Column(db.Text, nullable=False)
     newsletter = db.Column(db.String(10), nullable=True)
     enviado = db.Column(db.DateTime, default=datetime.utcnow)
+    leido = db.Column(db.Boolean, default=False) 

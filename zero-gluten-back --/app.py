@@ -337,7 +337,7 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'form_contacto_db'
 mysql = MySQL(app)
 
-# Inicialización de SQLAlchemy - contacto
+# Inicialización de SQLAlchemy - formulario
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/form_contacto_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
@@ -345,9 +345,10 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+# Definicion de contacto (parte front: usuario manda formulario - sube al db)
 @app.route('/contacto', methods=['POST'])
 def contact():
-    numero_consulta = f"A{str(Formulario.query.count() + 1).zfill(3)}"
+    numero_consulta = f"C{str(Formulario.query.count() + 1).zfill(3)}"
     nombre = request.form['nombre']
     email = request.form['email']
     motivo_contacto = request.form['motivo_contacto']
@@ -374,6 +375,7 @@ def contact():
     flash('Formulario enviado correctamente.')
     return redirect(url_for('cargarContacto'))
 
+# Envío de confirmación automatica - beta: Elastic Email (FREE version) solo admite envio a mail propietario de cuenta
 def enviar_correo_smtp(destinatario):
     remitente = "zerogluten.adm@gmail.com"
     servidor_smtp = "smtp.elasticemail.com"
@@ -396,17 +398,18 @@ def enviar_correo_smtp(destinatario):
     except Exception as e:
         print(f"Error al enviar correo: {e}")
 
-@app.route('/contacto', methods=['GET'])
-def obtener_contactos():
+@app.route('/contactoABM', methods=['GET'])
+def contactoABM():
     contactos = Formulario.query.all()
-    return render_template('contactos.html', contactos=contactos)
+    title = "Envíos de Formulario de Contacto"
+    return render_template('contactoABM.html', contact_forms=contactos, title=basicInfo(title))
 
-@app.route('/contacto/<int:id>', methods=['GET'])
-def obtener_contacto(id):
+@app.route('/contactoABM/<int:id>', methods=['GET'])
+def ver_contacto(id):
     contacto = Formulario.query.get_or_404(id)
-    return render_template('contacto.html', contacto=contacto)
+    return render_template('ver_contacto.html', contact_form=contacto)
 
-@app.route('/contacto/<int:id>/editar', methods=['GET', 'POST'])
+@app.route('/contactoABM/<int:id>/editar', methods=['GET', 'POST'])
 def editar_contacto(id):
     contacto = Formulario.query.get_or_404(id)
     if request.method == 'POST':
@@ -417,18 +420,32 @@ def editar_contacto(id):
         contacto.ubicacion = request.form['ubicacion']
         contacto.mensaje = request.form['mensaje']
         contacto.newsletter = 'Sí' if 'newsletter' in request.form else 'No'
+        contacto.leido = 'leido' in request.form  
+        
         db.session.commit()
-        flash('Contacto actualizado correctamente.')
-        return redirect(url_for('obtener_contactos'))
+        flash('Contacto actualizado correctamente.', 'success')
+        return redirect(url_for('contactoABM'))
     return render_template('editar_contacto.html', contacto=contacto)
 
-@app.route('/contacto/<int:id>/eliminar', methods=['POST'])
+@app.route('/contactoABM/<int:id>/eliminar', methods=['POST'])
 def eliminar_contacto(id):
     contacto = Formulario.query.get_or_404(id)
     db.session.delete(contacto)
     db.session.commit()
     flash('Contacto eliminado correctamente.')
-    return redirect(url_for('obtener_contactos'))
+    return redirect(url_for('contactoABM'))
+
+@app.route('/filtrarContacto', methods=['GET', 'POST'])
+def filtrarContacto():
+    estado = request.args.get('estado', 'todos')
+    if estado == 'Leidos':
+        contactos = Formulario.query.filter_by(leido=True).all()
+    elif estado == 'No_leidos':
+        contactos = Formulario.query.filter_by(leido=False).all()
+    else:
+        contactos = Formulario.query.all()
+    title = "Envíos de Formulario de Contacto"
+    return render_template('contactoABM.html', contact_forms=contactos, title=basicInfo(title))
 
 if __name__ == "__main__":
     app.run(debug=True)
