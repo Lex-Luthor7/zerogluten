@@ -1,0 +1,140 @@
+{% include 'defaults/head.html' %}
+
+    <style>
+        @media screen and (max-width: 1024px) {
+
+            .title-h2-preg,
+            .preg1-h4,
+            .preg2-h4,
+            .preg3-h4 {
+                width: 50%;
+                padding: 3%;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h4 {
+                font-size: 1.3em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .title-h2-preg,
+            .preg1-h4,
+            .preg2-h4,
+            .preg3-h4 {
+                width: 70%;
+                padding: 4%;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h4 {
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .title-h2-preg,
+            .preg1-h4,
+            .preg2-h4,
+            .preg3-h4 {
+                width: 90%;
+                padding: 5%;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            h4 {
+                font-size: 1em;
+            }
+
+            p {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+
+    <title>Preguntas Frecuentes</title>
+</head>
+
+<body>
+    <!-- barra de navegacion + marca -->
+    {% include 'defaults/navbar.html' %}
+    </header>
+
+    <br>
+    <br>
+
+    <section class="title-h2-preg">
+        <h2>Preguntas Frecuentes</h2>
+    </section>
+
+    <section class="preg1-h4">
+        <h4>¿Qué es Zero Gluten?</h4>
+
+        <p>Es una dieta, que consiste en consumir alimentos sin gluten.</p>
+    </section>
+
+    <section class="preg2-h4">
+        <h4>¿Es peligrosa?</h4>
+
+        <p>
+            No, pero puede ser poca saludable si la hacemos mal, o tenemos otros
+            poblemas de salud.
+        </p>
+
+        <p>
+            El gluten no es un nutriente esencial ni necesario, no pasa nada por no
+            consumirlo de manera permamente o temporal.
+        </p>
+    </section>
+
+    <section class="preg3-h4">
+        <h4>¿Cuales son los alimentos que tiene gluten y cuales no?</h4>
+
+        <p>
+            Los alimentos que contienen gluten son, los ultraprocesados que aveces
+            aparecen como libre de gluten como las galletas dulces sin gluten son de
+            igual de insanas que las versiones clasicas.
+        </p>
+
+        <p>Los cereales con gluten son: trigo, centeno, kamut, cebada.</p>
+
+        <p>
+            Los alimentos que no tienen gluten son: quínoa, arroz integral, arroz
+            silvestre, sorgo, mijo.
+        </p>
+
+        <p>
+            Tambien se puede mencionar algunas frutas como la frutilla, bananas,
+            manzanas, peras, verduras como espinaca, acelga, zanahoria, papas y
+            maiz, no tienen gluten.
+        </p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+{% include 'defaults/footer.html' %}
+</body>
+
+</html>

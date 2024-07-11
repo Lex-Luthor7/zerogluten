@@ -1,0 +1,30 @@
+{% include 'defaults/head3.html' %}
+<body class="body2">
+    <div class="container form-container">
+        <div class="catalogo contenedor-prod justify-content-center">
+            <h2 class="text-center mb-4">{{title[0]}}</h2>
+            <div class="form-producto bg justify-content-center">
+                <form action="/cargar_prod" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Precio:</label>
+                            <input type="number" class="form-control" id="precio" name="precio">
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">Imagen:</label><br>
+                            <input type="file" class="form-control-file" id="imagen" name="imagen" required>
+                        </div>
+                        <input type="submit" class="btn btn-dark" value="Cargar Producto">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+{% include 'defaults/footer2.html' %}

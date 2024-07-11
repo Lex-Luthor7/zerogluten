@@ -1,0 +1,254 @@
+{% include 'defaults/head.html' %}
+
+<style>
+        
+.wrapper {
+    max-width: 65%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.container-tienda {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 2fr 2fr;
+    gap: 10px;
+    position: relative;
+}
+
+.ctienda {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .container-tienda{
+        display: flex;
+        flex-flow: wrap;
+        text-align: center;
+    }
+    .cong, .beb, .nuev, .supl, .fres{
+        font-size: 16px;  
+        left: 0;
+        top: 30%;
+    }
+
+
+    .col4{
+        height: 80%;
+    }
+
+    .alm, .lmv{
+        font-size: 16px;  
+        left: 0;
+        top: 12%;
+    }
+
+    .img-cong{
+        max-width: 65%;
+        left: 23%;
+        }
+        .img-beb{
+            max-width: 85%;
+            left: 12%;
+            bottom: 0;
+            }
+            .img-nuev{
+                max-width: 98%;
+                left: 0%;
+                bottom: 12%;
+                }
+                .img-alm{
+                    max-width: 99%;
+                    left: 0;
+                    bottom: 50%;
+                    }
+                    .img-supl{
+                        max-width: 55%;
+                        left: 22%;
+                        bottom: 0;
+                        }
+                        .img-fres{
+                            max-width: 79%;
+                            left: 15%;
+                            bottom: 0;
+                            }
+                            .img-lmv{
+                                max-width: 65%;
+                                left: 17%;
+                                bottom: 20%;
+                                }
+}
+
+
+.col{
+    padding: 10px;
+    border-radius: 40px;
+    height: 200px;
+    position: relative;
+    }
+    .col1{
+        grid-column: span 2;
+        grid-row: 1;
+        width: 330px;
+        height: 155px;
+        background-color: #e2e9b6;
+        }
+        .col2{
+            grid-column: 1;
+            grid-row: 2;
+            width: 160px;
+            height: 160px;
+            background-color: #d4f293;
+            }
+            .col3{
+                grid-column: 2;
+                grid-row: 2;
+                width: 160px;
+                height: 160px;
+                background-color: #a4d7cd;
+                }
+                .col4{
+                    grid-column: 3;
+                    grid-row: span 2;
+                    width: 180px;
+                    height: 330px;
+                    background-color: #b7ce9b;
+                    }
+                    .col5{
+                        grid-column: 4;
+                        grid-row: 1;
+                        width: 160px;
+                        height: 160px;
+                        background-color: #e2e9b6;
+                        }
+                        .col6{
+                            grid-column: 4;
+                            grid-row: 2;
+                            width: 160px;
+                            height: 160px;
+                            background-color: #a4d7cd;
+                            }
+                            .col7{
+                                grid-column: 5;
+                                grid-row: span 2;
+                                width: 180px;
+                                height: 330px;
+                                background-color: #b7ce9b;
+                                }
+
+#map {
+    height: 400px; 
+    width: 100%;
+    max-width: 600px; 
+    margin: auto; 
+    border-radius: 15px;
+    margin-bottom: 25px;
+    }
+    .controls {
+        text-align: center; 
+        margin: 20px;
+        }
+        .preview {
+            display: none; 
+            text-align: center;
+            margin: 20px;
+            }
+
+.provi{
+    padding: 6px 25px; 
+    font-size: 16px;
+    font-family:'Josefin Sans', sans-serif;
+    border-radius: 6px;
+    background-color:aliceblue;
+    height: 35px;
+}
+
+
+
+        @media (max-width: 600px) {
+            #map {
+                height: 300px;
+                width: 90%;
+            }
+        }
+
+</style>
+
+<body>
+    
+{% include 'defaults/navbar.html' %}
+
+<!-- Caja Tienda -->
+<div class="wrapper">
+    <p class="tz">TIENDA-ZERO</p>
+    <div class="container-tienda">
+        <div class="col col1">
+            <a class="ctienda cong" href="/congelados">Congelados</a>
+            <img src="{{url_for('static',filename='img/congelados.jpg')}}" alt="Congelados" class="img-cong">
+        </div>
+
+        <div class="col col2">
+            <a class="ctienda beb" href="#">Bebidas</a>
+            <img src="{{url_for('static',filename='img/bebidas.jpg')}}" alt="Bebidas" class="img-beb">
+        </div>
+
+        <div class="col col3">
+            <a class="ctienda nuev" href="#">Nuevos</a>
+            <img src="{{url_for('static',filename='img/nuevos.png')}}" alt="Nuevos" class="img-nuev">
+        </div>
+
+        <div class="col col4">
+            <a class="ctienda alm" href="#">Almacén</a>
+            <img src="{{url_for('static',filename='img/almacen.jpg')}}" alt="Almacén" class="img-alm">
+        </div>
+
+        <div class="col col5">
+            <a class="ctienda supl" href="#">Suplementos</a>
+            <img src="{{url_for('static',filename='img/suplemento.png')}}" alt="Suplementos" class="img-supl">
+        </div>
+
+        <div class="col col6">
+            <a class="ctienda fres" href="#">Frescos</a>
+            <img src="{{url_for('static',filename='img/frescos.png')}}" alt="Frescos" class="img-fres">
+        </div>
+
+        <div class="col col7">
+            <a class="ctienda lmv" href="#">Lo más vendido</a>
+            <img src="{{url_for('static',filename='img/lo mas vendido.png')}}" alt="Lo más vendido" class="img-lmv">
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<!--Buscar por provincia Tiendas S/T-->
+<p class="tp">ENCONTRALO EN TU PROVINCIA</p>
+<div class="controls">
+    <label for="provincia" class="prov">Buscar:</label>
+    <select id="provincia" class="provi">
+        <option value="buenosaires">Buenos Aires</option>
+        <option value="cordoba">Córdoba</option>
+        <option value="jujuy">Jujuy</option>
+        <option value="salta">Salta</option>
+    </select>
+</div>
+
+<div id="map"></div>
+
+
+<!-- Mapa-Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- Bootstrap y Popper Menu JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<script src="{{url_for('static',filename='js/tiendasprov.js')}}"></script>
+
+</body>
+
+{% include 'defaults/footer.html' %}
+
+</html>
