@@ -1,0 +1,117 @@
+{% include 'defaults/head.html' %}
+
+    <style>
+        #map {
+            height: 400px;
+            width: 90%;
+            max-width: 1180px;
+            margin: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+    </style>
+    <title>Restaurantes</title>
+</head>
+
+<body>
+    <!-- barra de navegacion + marca -->
+    {% include 'defaults/navbar.html' %}
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <h1 class="mt-4">Restaurantes</h1>
+        <h2 class="mt-5">Descubre los mejores restaurantes sin gluten en tu zona.</h2>
+        <!-- Tarjetas de Restaurantes -->
+        <div class="cards">
+            {% for restaurant in restaurants %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='uploads/' + restaurant['image']) }}" class="card-img-top" alt="{{ restaurant['name'] }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ restaurant['name'] }}</h5>
+                    <p class="card-text">
+                        <strong>Dirección:</strong> {{ restaurant['address'] }}<br>
+                        <strong>Teléfono:</strong> {{ restaurant['phone'] }}<br>
+                        <strong>Página Web:</strong> <a href="{{ restaurant['website'] }}" target="_blank">{{ restaurant['website'] }}</a><br>
+                        <strong>Provincia:</strong> {{ restaurant['province'] }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- scritps -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static', filename='js/restaurant.js') }}"></script>
+
+    <br>
+    <br>
+    <!-- Selector de Provincia -->
+    <div class="targetprovincias">
+        <div class="mb-3">
+            <h3><label for="provincia" class="form-label">Selecciona una provincia:</label></h3>
+            <select class="form-select" id="provincia">
+                <option value="">Todas las provincias</option>
+                <option value="buenosaires">Buenos Aires</option>
+                <option value="catamarca">Catamarca</option>
+                <option value="chaco">Chaco</option>
+                <option value="chubut">Chubut</option>
+                <option value="cordoba">Córdoba</option>
+                <option value="corrientes">Corrientes</option>
+                <option value="entrerios">Entre Ríos</option>
+                <option value="formosa">Formosa</option>
+                <option value="jujuy">Jujuy</option>
+                <option value="lapampa">La Pampa</option>
+                <option value="larioja">La Rioja</option>
+                <option value="mendoza">Mendoza</option>
+                <option value="misiones">Misiones</option>
+                <option value="neuquen">Neuquén</option>
+                <option value="rionegro">Río Negro</option>
+                <option value="salta">Salta</option>
+                <option value="sanjuan">San Juan</option>
+                <option value="sanluis">San Luis</option>
+                <option value="santacruz">Santa Cruz</option>
+                <option value="santafe">Santa Fe</option>
+                <option value="santiagodelestero">Santiago del Estero</option>
+                <option value="tierradelfuego">Tierra del Fuego</option>
+                <option value="tucuman">Tucumán</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Mapa interactivo -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializa el mapa centrado en Argentina
+        var map = L.map('map').setView([-38.416097, -63.616672], 4); // Coordenadas de Argentina
+
+        // Añade una capa de mapa base (usando OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Añade marcadores de ciudades importantes en Argentina
+        L.marker([-34.603722, -58.381592]).addTo(map).bindPopup('Buenos Aires -Restaurante sin gluten 1.');
+        L.marker([-31.420083, -64.188776]).addTo(map).bindPopup('Córdoba - Restaurante sin gluten 2.');
+        L.marker([-32.946818, -60.639316]).addTo(map).bindPopup('Rosario - Restaurante sin gluten 3.');
+        L.marker([-32.889458, -68.845839]).addTo(map).bindPopup('Mendoza - Restaurante sin gluten 4.');
+        L.marker([-34.921450, -57.954533]).addTo(map).bindPopup('La Plata - Restaurante sin gluten 5 .');
+        L.marker([-26.808285, -65.217590]).addTo(map).bindPopup('San Miguel de Tucumán - Restaurante sin gluten 6.');
+        L.marker([-38.005477, -57.542611]).addTo(map).bindPopup('Mar del Plata - Restaurante sin gluten 7.');
+        L.marker([-24.782932, -65.423197]).addTo(map).bindPopup('Salta - Restaurante sin gluten 8.');
+        L.marker([-31.633329, -60.700000]).addTo(map).bindPopup('Santa Fe - Restaurante sin gluten 9.');
+        L.marker([-31.537500, -68.536390]).addTo(map).bindPopup('San Juan - Restaurante sin gluten 10.');
+    </script>
+    <br>
+
+    <footer>
+        {% include 'defaults/footer.html' %}
+</body>
+
+</html>

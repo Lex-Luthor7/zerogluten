@@ -1,0 +1,93 @@
+{% include 'defaults/head3.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de formularios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+.contenedor-cont{
+    margin: auto;
+    background-color:rgb(166, 180, 176);
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.col-cont{
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn{
+    margin-bottom: 8px;
+}
+.filtrob{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+</style>
+
+<body class="body2">
+    <div class="container mt-4">
+        <div class="catalogo contenedor-cont text-center">
+        <h2>Visualización de formularios recibidos</h2>
+        <form method="get" action="{{ url_for('contactoABM') }}">
+            <!-- botón o enlace para filtrar -->
+            <a href="{{ url_for('filtrarContacto', estado='Leidos') }}" class="btn btn-success filtrob">Leídos</a>
+            <a href="{{ url_for('filtrarContacto', estado='No_leidos') }}" class="btn btn-warning filtrob">No Leídos</a>
+            <a href="{{ url_for('filtrarContacto', estado='todos') }}" class="btn btn-primary filtrob">Todos</a>
+        </form>
+        <div class="table-container">
+        <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="col-cont">Número de Consulta</th>
+                    <th scope="col" class="col-cont">Nombre</th>
+                    <th scope="col" class="col-cont">Email</th>
+                    <th scope="col" class="col-cont">Motivo de Contacto</th>
+                    <th scope="col" class="col-cont">Servicio Utilizado</th>
+                    <th scope="col" class="col-cont">Leído</th>
+                    <th scope="col" class="col-cont">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact_form in contact_forms %}
+                <tr>
+                    <td class="col-cont">{{ contact_form.numero_consulta }}</td>
+                    <td class="col-cont">{{ contact_form.nombre }}</td>
+                    <td class="col-cont">{{ contact_form.email }}</td>
+                    <td class="col-cont">{{ contact_form.motivo_contacto }}</td>
+                    <td class="col-cont">{{ contact_form.serv_utilizado }}</td>
+                    <td class="col-cont">{{ 'Leído' if contact_form.leido else 'No leído' }}</td>
+                    <td class="col-cont">
+                        <div>
+                        <a href="{{ url_for('ver_contacto', id=contact_form.id) }}" class="btn btn-primary btn-sm">Ver</a>
+                        </div>
+                        <div>
+                        <a href="{{ url_for('editar_contacto', id=contact_form.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        </div>
+                        <div>
+                        <form action="{{ url_for('eliminar_contacto', id=contact_form.id) }}" method="post" style="display:inline-block;">
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>    
+        </table>
+        </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+{% include 'defaults/footer2.html' %}

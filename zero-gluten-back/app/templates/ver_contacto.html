@@ -1,0 +1,61 @@
+{% include 'defaults/head3.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de formulario</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+.contenedor-cont{
+    margin: auto;
+    background-color:rgb(166, 180, 176);
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.pcont{
+    background-color: white;
+}
+
+</style>
+<body class="body2">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 catalogo contenedor-cont text-center">
+                <div class="card-header">
+                    Detalles del formulario recibido
+                </div>
+                <div class="card">
+                    <div class="form-producto bg justify-content-center">
+                    <div class="card-body">
+                        <strong class="row">Nombre:</strong></p>
+                        <p class="pcont row">{{ contact_form.nombre }}</p>
+                        <strong class="row">Email:</strong>
+                        <p class="pcont row">{{ contact_form.email }}</p>
+                        <strong class="row">Motivo de Contacto:</strong>
+                        <p class="pcont row">{{ contact_form.motivo_contacto }}</p>
+                        <strong class="row">Servicio Utilizado:</strong>
+                        <p class="pcont row">{{ contact_form.serv_utilizado }}</p>
+                        <strong class="row">Ubicación:</strong>
+                        <p class="pcont row">{{ contact_form.ubicacion }}</p>
+                        <strong class="row">Mensaje:</strong>
+                        <p class="pcont row">{{ contact_form.mensaje }}</p>
+                        <strong class="row">Newsletter:</strong>
+                        <p class="pcont row">{{ contact_form.newsletter }}</p>
+                        <strong class="row">Leído:</strong>
+                        <p class="pcont row">{{ 'Sí' if contact_form.leido else 'No' }}</p>
+                        <a href="{{ url_for('contactoABM') }}" class="btn btn-primary">Volver</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>    
+</body>
+</html>
+{% include 'defaults/footer2.html' %}

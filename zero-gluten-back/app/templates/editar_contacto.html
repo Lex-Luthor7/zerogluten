@@ -1,0 +1,80 @@
+{% include 'defaults/head3.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar formulario de contacto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+.contenedor-cont{
+    margin: auto;
+    background-color:rgb(166, 180, 176);
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .nomc {
+            align-self: flex-start;
+        }
+
+</style>
+<body class="body2">
+    <div class="container mt-4">
+        <div class="catalogo contenedor-cont text-center">
+        <h1>Editar formulario de contacto</h1>
+        <div class="form-producto bg justify-content-center">
+        <form method="POST" action="{{ url_for('editar_contacto', id=contacto.id) }}">
+            <div class="form-group">
+                <label for="nombre" class="nomc">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ contacto.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ contacto.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="motivo_contacto">Motivo de Contacto:</label>
+                <select class="form-control" id="motivo_contacto" name="motivo_contacto" required>
+                    <option value="consulta" {% if contacto.motivo_contacto == 'consulta' %}selected{% endif %}>Consulta</option>
+                    <option value="sugerencia" {% if contacto.motivo_contacto == 'sugerencia' %}selected{% endif %}>Sugerencia</option>
+                    <option value="otro" {% if contacto.motivo_contacto == 'otro' %}selected{% endif %}>Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="serv_utilizado">Servicio Utilizado:</label>
+                <input type="text" class="form-control" id="serv_utilizado" name="serv_utilizado" value="{{ contacto.serv_utilizado }}">
+            </div>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="{{ contacto.ubicacion }}">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" required>{{ contacto.mensaje }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="newsletter">Newsletter:</label>
+                <input type="checkbox" id="newsletter" name="newsletter" {% if contacto.newsletter == 'Sí' %}checked{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="leido">Marcar como leído:</label>
+                <input type="checkbox" id="leido" name="leido" {% if contacto.leido %}checked{% endif %}>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+{% include 'defaults/footer2.html' %}

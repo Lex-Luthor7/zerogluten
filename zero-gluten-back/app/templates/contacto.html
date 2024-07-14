@@ -1,0 +1,129 @@
+{% include 'defaults/head.html' %}
+
+<body>
+    <!-- barra de navegacion + marca -->
+    {% include 'defaults/navbar.html' %}
+
+    <!-- pagina de contacto - formulario-->
+    <div class="intro">
+        <!--columna izq-->
+        <div class="intro-box container-fluid">
+            <p class="epi-left">¿Tenés alguna consulta?</p>
+            <p class="title-left">Contáctate con <br> nosotros</p>
+            <p class="body-left">Si tenés alguna pregunta o inquietud sobre cómo funcionan los servicios que ofrecemos o
+                si querés dejarnos un comentario sobre cómo fue tu experiencia recibida con nuestros partners
+                gastronómicos, completá el formulario de contacto aquí debajo. </p>
+            <button class="btn-page" onclick="scrollToForm()">¡CONTÁCTANOS!</button>
+        </div>
+        <!--columna der-->
+        <div class="intro-box container-fluid">
+            <p class="epi-right">¿Conocés nuestras redes?</p>
+            <p class="title-right">Encontranos en tu <br> red social favorita</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Tik Tok</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--formulario contacto-->
+    <div class="background">
+        <div class="contact-box container-fluid">
+            <p class="title-form">¡Contáctate con nuestro equipo!</p>
+            <p class="text-form">Esperamos tu opinión o consulta con ansías. Te responderemos lo antes posible!</p>
+            <form id="contactForm" action="/contacto" method="POST" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Motivo de Contacto:</label>
+                    <div class="radio-group">
+                        <div class="form-check">
+                            <input type="radio" id="duda" name="motivo_contacto" value="Consulta" required>
+                            <label for="duda">Duda/Consulta</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="opinion" name="motivo_contacto" value="Opinion" required>
+                            <label for="opinion">Opinión</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="reclamo" name="motivo_contacto" value="Reclamo" required>
+                            <label for="reclamo">Reclamo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Servicio que utilizaste:</label>
+                    <select id="servicio" name="serv_utilizado" required>
+                        <option value="Tienda online">Tienda Online</option>
+                        <option value="Restaurantes">Restaurantes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ubicacion">¿Desde dónde nos contactás?</label>
+                    <select id="ubicacion" name="ubicacion" required>
+                        <option value="Buenos Aires - GBA">Buenos Aires - GBA</option>
+                        <option value="Buenos Aires - Interior">Buenos Aires - Interior</option>
+                        <option value="CABA">CABA</option>
+                        <option value="Catamarca">Catamarca</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Cordoba">Córdoba</option>
+                        <option value="Corrientes">Corrientes</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Formosa">Formosa</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="LaPampa">La Pampa</option>
+                        <option value="LaRioja">La Rioja</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="RíoNegro">Río Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="SanJuan">San Juan</option>
+                        <option value="SanLuis">San Luis</option>
+                        <option value="SantaCruz">Santa Cruz</option>
+                        <option value="SantaFe">Santa Fe</option>
+                        <option value="SantiagodelEstero">Santiado del Estero</option>
+                        <option value="TierradelFuego">Tierra del Fuego</option>
+                        <option value="Tucuman">Tucumán</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                <div class="form-group form-check">
+                    <div style="display: inline-flex">
+                        <input type="checkbox" name="newsletter" id="suscribir" class="form-check-input">
+                        <label for="suscribir" class="form-check-label">¿Deseas suscribirte a nuestro newsletter?
+                            Recibirás novedades y promociones de nuestros servicios.</label>
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <div style="display: inline-flex">
+                        <input type="checkbox" id="aceptar" name="aceptar" class="form-check-input" required>
+                        <label for="aceptar" class="form-check-label">Acepto los terminos y condiciones de
+                            privacidad.</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">ENVIAR</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- scritps -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static', filename='js/validar-form.js') }}" defer></script>
+
+
+    <footer>
+        {% include 'defaults/footer.html' %}
+    </footer>
+</body>

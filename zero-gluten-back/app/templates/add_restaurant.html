@@ -1,0 +1,81 @@
+{% include 'defaults/head3.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alta de Restaurante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> -->
+</head>
+<style>
+    .contenedor-rest{
+    margin: auto;
+    background-color:rgb(166, 180, 176);
+    border-radius: 20px;
+    width: 80%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.form-group.row {
+            margin-bottom: 1rem;
+        }
+        .form-group.row label {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+.rest-img{
+    max-width:20%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+</style>
+<body class="body2">
+    <div class="container form-container">
+        <div class="catalogo contenedor-rest">
+        <h1 class="my-4 text-center">Alta de Restaurante</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-producto bg">
+            <div class="form-group row">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group row">
+                <label for="address">Dirección:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+            </div>
+            <div class="form-group row">
+                <label for="province">Provincia:</label>
+                <input type="text" class="form-control" id="province" name="province" required>
+            </div>
+            <div class="form-group row">
+                <label for="latitude">Latitud:</label>
+                <input type="number" step="any" class="form-control" id="latitude" name="latitude" required>
+            </div>
+            <div class="form-group row">
+                <label for="longitude">Longitud:</label>
+                <input type="number" step="any" class="form-control" id="longitude" name="longitude" required>
+            </div>
+            <div class="form-group row">
+                <label for="phone">Teléfono:</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="form-group row">
+                <label for="website">Página Web:</label>
+                <input type="url" class="form-control" id="website" name="website">
+            </div>
+            <div class="form-group row">
+                <label for="image">Imagen:</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+{% include 'defaults/footer2.html' %}
